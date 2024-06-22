@@ -26,6 +26,7 @@ function MailList({ object }: { object: string }) {
   if (!data) {
     return <div>No data available</div>;
   }
+
   return (
     <ul>
       {data.map((value: MailProps) => (
