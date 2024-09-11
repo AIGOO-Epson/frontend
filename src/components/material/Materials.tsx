@@ -1,3 +1,4 @@
+"use client";
 import useMaterialQuery from "@/hooks/queries/useMaterialQuery";
 import React, { useRef } from "react";
 import Material from "./Material";
