@@ -6,7 +6,7 @@ const useMaterialQuery = () => {
     queryKey: ["material"],
     queryFn: async () => {
       const data = await getStudyMateirals();
-      return data.studyDatas;
+      return data.data.studyDatas;
     },
   });
 };

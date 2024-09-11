@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mock": "npx tsx ./mocks/http.ts",
+    "dev:mock": "concurrently --kill-others \"NEXT_PUBLIC_API_MOCKING=enable next dev\" \"npx tsx watch ./src/mocks/http.ts\""
   },
   "dependencies": {
+    "@mswjs/http-middleware": "^0.10.1",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-label": "^2.0.2",
@@ -17,13 +20,17 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
+    "@remix-run/node": "^2.12.0",
     "@tanstack/react-query": "^5.45.0",
     "@tanstack/react-query-devtools": "^5.45.0",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
     "dayjs": "^1.11.11",
+    "express": "^4.19.2",
     "framer-motion": "^11.2.10",
+    "graphql": "^16.9.0",
     "lucide-react": "^0.394.0",
     "next": "14.2.3",
     "next-themes": "^0.3.0",
@@ -36,15 +43,24 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "msw": "^2.4.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
