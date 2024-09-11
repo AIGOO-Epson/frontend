@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import AuthGuard from "@/lib/util/AuthGuard";
 import { Toaster } from "@/components/ui/sonner";
+import { MSWComponent } from "@/mocks/MSWComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <ReactQueryProvider>
-          <AuthGuard>
-            <Header />
-            {children}
-            <NavBar />
-            <Toaster duration={1000} />
-          </AuthGuard>
-        </ReactQueryProvider>
+        <MSWComponent>
+          <ReactQueryProvider>
+            <AuthGuard>
+              <Header />
+              {children}
+              <NavBar />
+              <Toaster duration={1000} />
+            </AuthGuard>
+          </ReactQueryProvider>
+        </MSWComponent>
       </body>
     </html>
   );
